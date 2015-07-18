@@ -10,3 +10,5 @@ There are the following tabs
 * HEX to RGB 
 * SQL Builder (IN Clause)
 * Guid 
+
+It also contains a HELP (.chm) file to further explain the tabs and functions.
