@@ -1,0 +1,6 @@
+﻿NOTES
+
+'ICON C:\Users\Alex\Dropbox\Icons\symbolicons\Symbolicons_Block\PNG\256
+
+'https://msdn.microsoft.com/en-us/library/system.net.webutility.urldecode(v=vs.110).aspx
+'https://msdn.microsoft.com/en-us/library/system.net.webutility.urlencode(v=vs.110).aspx
