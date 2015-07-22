@@ -6,6 +6,10 @@ Imports System.IO
 Imports System.Net
 Imports System.Net.WebUtility
 
+Imports System.Xml
+'Imports System.Xml.XmlWriter
+'Imports System.Xml.XmlTextWriter
+
 Imports Microsoft.VisualBasic
 
 Public Class frmUtility
@@ -248,5 +252,63 @@ Public Class frmUtility
         ' Create and display the value of two GUIDs.
         g = Guid.NewGuid()
         txtGuidNew.Text = g.ToString
+    End Sub
+
+    ' -----------------
+    ' XML Pretty Print
+    ' -----------------
+
+    Private Sub cmdXMLPrettyPrint_Click(sender As Object, e As EventArgs) Handles cmdXMLPrettyPrint.Click
+        txtXML.Text = PrettyXML(txtXML.Text)
+        lbltssMainStatus.Text = "XML has been prettied"
+    End Sub
+
+    Private Sub txtXML_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtXML.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub cmdCopyXML_Click(sender As Object, e As EventArgs) Handles cmdCopyXML.Click
+        My.Computer.Clipboard.SetText(txtXML.Text)
+        lbltssMainStatus.Text = "Parsed XML has been copied to the Clipboard"
+    End Sub
+
+    'http://thechriskent.com/2012/05/01/prettify-your-xml-in-net/
+    Private Function PrettyXML(XMLString As String) As String
+        Dim sw As New StringWriter()
+        Dim xw As New XmlTextWriter(sw)
+        xw.Formatting = Formatting.Indented
+        xw.Indentation = 4
+        Dim doc As New XmlDocument
+        doc.LoadXml(XMLString)
+        doc.Save(xw)
+        Return sw.ToString()
+    End Function
+
+    ' ------------------
+    ' JSON Pretty Print
+    ' ------------------
+
+    ' http://www.limilabs.com/blog/json-net-formatter
+    ' Converted by http://converter.telerik.com/
+
+    Private Sub cmdJSONPrettyPrint_Click(sender As Object, e As EventArgs) Handles cmdJSONPrettyPrint.Click
+        'Console.WriteLine(new JsonFormatter(@"{""parameter"" : ""value"" , { ""parameter2"" : ""value2"" },{ ""parameter3"" : ""value3"" } }").Format());
+        txtJSON.Text = New JsonFormatter(txtJSON.Text).Format()
+        lbltssMainStatus.Text = "JSON has been prettied"
+    End Sub
+
+    Private Sub txtJSON_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtJSON.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub cmdCopyJSON_Click(sender As Object, e As EventArgs) Handles cmdCopyJSON.Click
+        My.Computer.Clipboard.SetText(txtJSON.Text)
+        lbltssMainStatus.Text = "Parsed JSON has been copied to the Clipboard"
     End Sub
 End Class

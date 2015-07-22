@@ -99,6 +99,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Code\IndentWriter.vb" />
+    <Compile Include="Code\JsonFormatter.vb" />
+    <Compile Include="Code\StringWalker.vb" />
     <Compile Include="SplashScreen.Designer.vb">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </Compile>

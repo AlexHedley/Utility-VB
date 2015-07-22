@@ -82,8 +82,18 @@ Partial Class frmUtility
         Me.lblZeros = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtGuidZero = New System.Windows.Forms.TextBox()
+        Me.tpXMLPrettyPrint = New System.Windows.Forms.TabPage()
+        Me.cmdXMLPrettyPrint = New System.Windows.Forms.Button()
+        Me.txtXML = New System.Windows.Forms.TextBox()
+        Me.tpJSONPrettyPrint = New System.Windows.Forms.TabPage()
+        Me.cmdJSONPrettyPrint = New System.Windows.Forms.Button()
+        Me.txtJSON = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lbltssMainStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.cmdCopyXML = New System.Windows.Forms.Button()
+        Me.cmdCopyJSON = New System.Windows.Forms.Button()
+        Me.lblXML = New System.Windows.Forms.Label()
+        Me.lblJSON = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tpHTMLDecodeEncode.SuspendLayout()
@@ -93,6 +103,8 @@ Partial Class frmUtility
         Me.tpHEXtoRGB.SuspendLayout()
         Me.tpSQLBuilder.SuspendLayout()
         Me.tpGuid.SuspendLayout()
+        Me.tpXMLPrettyPrint.SuspendLayout()
+        Me.tpJSONPrettyPrint.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -304,6 +316,8 @@ Partial Class frmUtility
         Me.TabControl1.Controls.Add(Me.tpHEXtoRGB)
         Me.TabControl1.Controls.Add(Me.tpSQLBuilder)
         Me.TabControl1.Controls.Add(Me.tpGuid)
+        Me.TabControl1.Controls.Add(Me.tpXMLPrettyPrint)
+        Me.TabControl1.Controls.Add(Me.tpJSONPrettyPrint)
         Me.TabControl1.Location = New System.Drawing.Point(12, 27)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -661,6 +675,68 @@ Partial Class frmUtility
         Me.txtGuidZero.TabIndex = 0
         Me.txtGuidZero.Text = "00000000-0000-0000-0000-000000000000"
         '
+        'tpXMLPrettyPrint
+        '
+        Me.tpXMLPrettyPrint.Controls.Add(Me.lblXML)
+        Me.tpXMLPrettyPrint.Controls.Add(Me.cmdCopyXML)
+        Me.tpXMLPrettyPrint.Controls.Add(Me.cmdXMLPrettyPrint)
+        Me.tpXMLPrettyPrint.Controls.Add(Me.txtXML)
+        Me.tpXMLPrettyPrint.Location = New System.Drawing.Point(4, 22)
+        Me.tpXMLPrettyPrint.Name = "tpXMLPrettyPrint"
+        Me.tpXMLPrettyPrint.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpXMLPrettyPrint.Size = New System.Drawing.Size(792, 574)
+        Me.tpXMLPrettyPrint.TabIndex = 6
+        Me.tpXMLPrettyPrint.Text = "XML Pretty Print"
+        Me.tpXMLPrettyPrint.UseVisualStyleBackColor = True
+        '
+        'cmdXMLPrettyPrint
+        '
+        Me.cmdXMLPrettyPrint.Location = New System.Drawing.Point(711, 6)
+        Me.cmdXMLPrettyPrint.Name = "cmdXMLPrettyPrint"
+        Me.cmdXMLPrettyPrint.Size = New System.Drawing.Size(75, 23)
+        Me.cmdXMLPrettyPrint.TabIndex = 1
+        Me.cmdXMLPrettyPrint.Text = "Pretty"
+        Me.cmdXMLPrettyPrint.UseVisualStyleBackColor = True
+        '
+        'txtXML
+        '
+        Me.txtXML.Location = New System.Drawing.Point(7, 35)
+        Me.txtXML.Multiline = True
+        Me.txtXML.Name = "txtXML"
+        Me.txtXML.Size = New System.Drawing.Size(779, 504)
+        Me.txtXML.TabIndex = 0
+        '
+        'tpJSONPrettyPrint
+        '
+        Me.tpJSONPrettyPrint.Controls.Add(Me.lblJSON)
+        Me.tpJSONPrettyPrint.Controls.Add(Me.cmdCopyJSON)
+        Me.tpJSONPrettyPrint.Controls.Add(Me.cmdJSONPrettyPrint)
+        Me.tpJSONPrettyPrint.Controls.Add(Me.txtJSON)
+        Me.tpJSONPrettyPrint.Location = New System.Drawing.Point(4, 22)
+        Me.tpJSONPrettyPrint.Name = "tpJSONPrettyPrint"
+        Me.tpJSONPrettyPrint.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpJSONPrettyPrint.Size = New System.Drawing.Size(792, 574)
+        Me.tpJSONPrettyPrint.TabIndex = 7
+        Me.tpJSONPrettyPrint.Text = "JSON Pretty Print"
+        Me.tpJSONPrettyPrint.UseVisualStyleBackColor = True
+        '
+        'cmdJSONPrettyPrint
+        '
+        Me.cmdJSONPrettyPrint.Location = New System.Drawing.Point(711, 6)
+        Me.cmdJSONPrettyPrint.Name = "cmdJSONPrettyPrint"
+        Me.cmdJSONPrettyPrint.Size = New System.Drawing.Size(75, 23)
+        Me.cmdJSONPrettyPrint.TabIndex = 3
+        Me.cmdJSONPrettyPrint.Text = "Pretty"
+        Me.cmdJSONPrettyPrint.UseVisualStyleBackColor = True
+        '
+        'txtJSON
+        '
+        Me.txtJSON.Location = New System.Drawing.Point(7, 35)
+        Me.txtJSON.Multiline = True
+        Me.txtJSON.Name = "txtJSON"
+        Me.txtJSON.Size = New System.Drawing.Size(779, 504)
+        Me.txtJSON.TabIndex = 2
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lbltssMainStatus})
@@ -674,6 +750,44 @@ Partial Class frmUtility
         '
         Me.lbltssMainStatus.Name = "lbltssMainStatus"
         Me.lbltssMainStatus.Size = New System.Drawing.Size(0, 17)
+        '
+        'cmdCopyXML
+        '
+        Me.cmdCopyXML.Location = New System.Drawing.Point(711, 545)
+        Me.cmdCopyXML.Name = "cmdCopyXML"
+        Me.cmdCopyXML.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopyXML.TabIndex = 2
+        Me.cmdCopyXML.Text = "&Copy"
+        Me.cmdCopyXML.UseVisualStyleBackColor = True
+        '
+        'cmdCopyJSON
+        '
+        Me.cmdCopyJSON.Location = New System.Drawing.Point(711, 545)
+        Me.cmdCopyJSON.Name = "cmdCopyJSON"
+        Me.cmdCopyJSON.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopyJSON.TabIndex = 4
+        Me.cmdCopyJSON.Text = "&Copy"
+        Me.cmdCopyJSON.UseVisualStyleBackColor = True
+        '
+        'lblXML
+        '
+        Me.lblXML.AutoSize = True
+        Me.lblXML.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblXML.Location = New System.Drawing.Point(6, 16)
+        Me.lblXML.Name = "lblXML"
+        Me.lblXML.Size = New System.Drawing.Size(29, 13)
+        Me.lblXML.TabIndex = 3
+        Me.lblXML.Text = "XML"
+        '
+        'lblJSON
+        '
+        Me.lblJSON.AutoSize = True
+        Me.lblJSON.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblJSON.Location = New System.Drawing.Point(6, 16)
+        Me.lblJSON.Name = "lblJSON"
+        Me.lblJSON.Size = New System.Drawing.Size(35, 13)
+        Me.lblJSON.TabIndex = 5
+        Me.lblJSON.Text = "JSON"
         '
         'frmUtility
         '
@@ -707,6 +821,10 @@ Partial Class frmUtility
         Me.tpSQLBuilder.PerformLayout()
         Me.tpGuid.ResumeLayout(False)
         Me.tpGuid.PerformLayout()
+        Me.tpXMLPrettyPrint.ResumeLayout(False)
+        Me.tpXMLPrettyPrint.PerformLayout()
+        Me.tpJSONPrettyPrint.ResumeLayout(False)
+        Me.tpJSONPrettyPrint.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -774,5 +892,15 @@ Partial Class frmUtility
     Friend WithEvents cmdGuidGenerate As System.Windows.Forms.Button
     Friend WithEvents lblGuidNew As System.Windows.Forms.Label
     Friend WithEvents cmdGuidNewCopy As System.Windows.Forms.Button
+    Friend WithEvents tpXMLPrettyPrint As System.Windows.Forms.TabPage
+    Friend WithEvents cmdXMLPrettyPrint As System.Windows.Forms.Button
+    Friend WithEvents txtXML As System.Windows.Forms.TextBox
+    Friend WithEvents tpJSONPrettyPrint As System.Windows.Forms.TabPage
+    Friend WithEvents cmdJSONPrettyPrint As System.Windows.Forms.Button
+    Friend WithEvents txtJSON As System.Windows.Forms.TextBox
+    Friend WithEvents cmdCopyXML As System.Windows.Forms.Button
+    Friend WithEvents cmdCopyJSON As System.Windows.Forms.Button
+    Friend WithEvents lblXML As System.Windows.Forms.Label
+    Friend WithEvents lblJSON As System.Windows.Forms.Label
 
 End Class
