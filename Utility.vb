@@ -12,6 +12,10 @@ Public Class frmUtility
 
     Private Sub frmUtility_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HelpProvider1.HelpNamespace = Application.StartupPath & "\Utility.chm"
+
+        'Set the Combo for SQL Builder
+        'cboWrapper.ListIndex = 0
+        cboWrapper.SelectedIndex = 0
     End Sub
 
     ' ---------------------
@@ -76,15 +80,27 @@ Public Class frmUtility
     'http://meyerweb.com/eric/tools/dencoder/
 
     Private Sub cmdURLEncode_Click(sender As Object, e As EventArgs) Handles cmdURLEncode.Click
+        If Len(txtUrlEncode.Text) = 0 Then
+            MsgBox("Please add a URL")
+            txtUrlEncode.Focus()
+            Exit Sub
+        End If
+
         ' Encode it as url.
         Dim strEncoded As String
         strEncoded = WebUtility.UrlEncode(txtUrlEncode.Text)
         txtURLDecode.Text = strEncoded
 
-        lbltssMainStatus.Text = "HTML Decoded"
+        lbltssMainStatus.Text = "HTML Encoded"
     End Sub
 
     Private Sub cmdURLDecode_Click(sender As Object, e As EventArgs) Handles cmdURLDecode.Click
+        If Len(txtURLDecode.Text) = 0 Then
+            MsgBox("Please add a URL")
+            txtURLDecode.Focus()
+            Exit Sub
+        End If
+
         Dim strDecoded As String
         strDecoded = WebUtility.UrlDecode(txtURLDecode.Text)
         txtUrlEncode.Text = strDecoded

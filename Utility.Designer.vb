@@ -227,7 +227,6 @@ Partial Class frmUtility
         Me.txtUrlEncode.Name = "txtUrlEncode"
         Me.txtUrlEncode.Size = New System.Drawing.Size(742, 20)
         Me.txtUrlEncode.TabIndex = 18
-        Me.txtUrlEncode.Text = "one two/three"
         '
         'lblURL
         '
@@ -249,10 +248,10 @@ Partial Class frmUtility
         '
         'cmdURLDecode
         '
-        Me.cmdURLDecode.Location = New System.Drawing.Point(660, 33)
+        Me.cmdURLDecode.Location = New System.Drawing.Point(726, 88)
         Me.cmdURLDecode.Name = "cmdURLDecode"
         Me.cmdURLDecode.Size = New System.Drawing.Size(60, 23)
-        Me.cmdURLDecode.TabIndex = 21
+        Me.cmdURLDecode.TabIndex = 22
         Me.cmdURLDecode.Text = "Decode"
         Me.cmdURLDecode.UseVisualStyleBackColor = True
         '
@@ -453,8 +452,7 @@ Partial Class frmUtility
         Me.txtURLDecode.Location = New System.Drawing.Point(44, 62)
         Me.txtURLDecode.Name = "txtURLDecode"
         Me.txtURLDecode.Size = New System.Drawing.Size(742, 20)
-        Me.txtURLDecode.TabIndex = 22
-        Me.txtURLDecode.Text = "one two/three"
+        Me.txtURLDecode.TabIndex = 21
         '
         'tpHEXtoRGB
         '
