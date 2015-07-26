@@ -20,6 +20,13 @@ Public Class frmUtility
         'Set the Combo for SQL Builder
         'cboWrapper.ListIndex = 0
         cboWrapper.SelectedIndex = 0
+
+        txtXML.ScrollBars = ScrollBars.Vertical
+        txtJSON.ScrollBars = ScrollBars.Vertical
+    End Sub
+
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        lbltssMainStatus.Text = ""
     End Sub
 
     ' ---------------------
@@ -112,36 +119,57 @@ Public Class frmUtility
         lbltssMainStatus.Text = "HTML Decoded"
     End Sub
 
+    Private Sub cmdCopyURL_Click(sender As Object, e As EventArgs) Handles cmdCopyURL.Click
+        If Len(txtURLDecode.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtSQLParsed.Text)
+            lbltssMainStatus.Text = "Decoded URL has been copied to the Clipboard"
+        End If
+    End Sub
+
     ' -------------------
     ' HTML Encode/Decode
     ' -------------------
     Private Sub cmdHTMLEncode_Click(sender As Object, e As EventArgs) Handles cmdHTMLEncode.Click
-        Dim myEncodedString As String
-        ' Encode the string.
-        myEncodedString = HtmlEncode(txtOutput.Text)
-        txtInput.Text = myEncodedString
+        If Len(txtOutput.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to Encode"
+        Else
+            Dim myEncodedString As String
+            ' Encode the string.
+            myEncodedString = HtmlEncode(txtOutput.Text)
+            txtInput.Text = myEncodedString
 
-        lbltssMainStatus.Text = "HTML Encoded"
+            lbltssMainStatus.Text = "HTML Encoded"
+        End If
     End Sub
 
     Private Sub cmdHTMLDecode_Click(sender As Object, e As EventArgs) Handles cmdHTMLDecode.Click
-        lblCount.Text = Len(txtInput.Text)
+        If Len(txtInput.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to Decode"
+        Else
+            lblCount.Text = Len(txtInput.Text)
 
-        Dim myWriter As New StringWriter()
-        ' Decode the encoded string.
-        HtmlDecode(txtInput.Text, myWriter)
-        txtOutput.Text = myWriter.ToString()
-        wbOutput.DocumentText = myWriter.ToString()
+            Dim myWriter As New StringWriter()
+            ' Decode the encoded string.
+            HtmlDecode(txtInput.Text, myWriter)
+            txtOutput.Text = myWriter.ToString()
+            wbOutput.DocumentText = myWriter.ToString()
 
-        lbltssMainStatus.Text = "HTML Decoded"
+            lbltssMainStatus.Text = "HTML Decoded"
+        End If
     End Sub
 
     Private Sub cmdClear_Click(sender As Object, e As EventArgs) Handles cmdClear.Click
-        txtOutput.Text = ""
-        txtInput.Text = ""
-        wbOutput.DocumentText = ""
+        If Len(txtOutput.Text) = 0 Or Len(txtInput.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to clear"
+        Else
+            txtOutput.Text = ""
+            txtInput.Text = ""
+            wbOutput.DocumentText = ""
 
-        lbltssMainStatus.Text = "Cleared"
+            lbltssMainStatus.Text = "Cleared"
+        End If
     End Sub
 
     'Ctrl+A
@@ -215,8 +243,12 @@ Public Class frmUtility
     End Sub
 
     Private Sub cmdCopySQL_Click(sender As Object, e As EventArgs) Handles cmdCopySQL.Click
-        My.Computer.Clipboard.SetText(txtSQLParsed.Text)
-        lbltssMainStatus.Text = "Parsed SQL has been copied to the Clipboard"
+        If Len(txtSQLParsed.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtSQLParsed.Text)
+            lbltssMainStatus.Text = "Parsed SQL has been copied to the Clipboard"
+        End If
     End Sub
 
     Private Sub cmdClearSQL_Click(sender As Object, e As EventArgs) Handles cmdClearSQL.Click
@@ -230,8 +262,12 @@ Public Class frmUtility
     ' -----
 
     Private Sub cmdGuidZeroCopy_Click(sender As Object, e As EventArgs) Handles cmdGuidZeroCopy.Click
-        My.Computer.Clipboard.SetText(txtGuidZero.Text)
-        lbltssMainStatus.Text = "A zero Guid has been copied to the Clipboard"
+        If Len(txtGuidZero.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtGuidZero.Text)
+            lbltssMainStatus.Text = "A zero Guid has been copied to the Clipboard"
+        End If
     End Sub
 
     Private Sub txtGuidZero_Enter(sender As Object, e As EventArgs) Handles txtGuidZero.Enter
@@ -239,8 +275,12 @@ Public Class frmUtility
     End Sub
 
     Private Sub cmdGuidNewCopy_Click(sender As Object, e As EventArgs) Handles cmdGuidNewCopy.Click
-        My.Computer.Clipboard.SetText(txtGuidNew.Text)
-        lbltssMainStatus.Text = "A new Guid has been copied to the Clipboard"
+        If Len(txtGuidNew.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtGuidNew.Text)
+            lbltssMainStatus.Text = "A new Guid has been copied to the Clipboard"
+        End If
     End Sub
 
     Private Sub txtGuidNew_Enter(sender As Object, e As EventArgs) Handles txtGuidNew.Enter
@@ -252,6 +292,8 @@ Public Class frmUtility
         ' Create and display the value of two GUIDs.
         g = Guid.NewGuid()
         txtGuidNew.Text = g.ToString
+
+        lbltssMainStatus.Text = "A new Guid has been generated"
     End Sub
 
     ' -----------------
@@ -259,8 +301,12 @@ Public Class frmUtility
     ' -----------------
 
     Private Sub cmdXMLPrettyPrint_Click(sender As Object, e As EventArgs) Handles cmdXMLPrettyPrint.Click
-        txtXML.Text = PrettyXML(txtXML.Text)
-        lbltssMainStatus.Text = "XML has been prettied"
+        If Len(txtXML.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to be prettied"
+        Else
+            txtXML.Text = PrettyXML(txtXML.Text)
+            lbltssMainStatus.Text = "XML has been prettied"
+        End If
     End Sub
 
     Private Sub txtXML_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtXML.KeyPress
@@ -271,8 +317,12 @@ Public Class frmUtility
     End Sub
 
     Private Sub cmdCopyXML_Click(sender As Object, e As EventArgs) Handles cmdCopyXML.Click
-        My.Computer.Clipboard.SetText(txtXML.Text)
-        lbltssMainStatus.Text = "Parsed XML has been copied to the Clipboard"
+        If Len(txtXML.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtXML.Text)
+            lbltssMainStatus.Text = "Parsed XML has been copied to the Clipboard"
+        End If
     End Sub
 
     'http://thechriskent.com/2012/05/01/prettify-your-xml-in-net/
@@ -295,9 +345,13 @@ Public Class frmUtility
     ' Converted by http://converter.telerik.com/
 
     Private Sub cmdJSONPrettyPrint_Click(sender As Object, e As EventArgs) Handles cmdJSONPrettyPrint.Click
-        'Console.WriteLine(new JsonFormatter(@"{""parameter"" : ""value"" , { ""parameter2"" : ""value2"" },{ ""parameter3"" : ""value3"" } }").Format());
-        txtJSON.Text = New JsonFormatter(txtJSON.Text).Format()
-        lbltssMainStatus.Text = "JSON has been prettied"
+        If Len(txtXML.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to be prettied"
+        Else
+            'Console.WriteLine(new JsonFormatter(@"{""parameter"" : ""value"" , { ""parameter2"" : ""value2"" },{ ""parameter3"" : ""value3"" } }").Format());
+            txtJSON.Text = New JsonFormatter(txtJSON.Text).Format()
+            lbltssMainStatus.Text = "JSON has been prettied"
+        End If
     End Sub
 
     Private Sub txtJSON_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtJSON.KeyPress
@@ -308,7 +362,42 @@ Public Class frmUtility
     End Sub
 
     Private Sub cmdCopyJSON_Click(sender As Object, e As EventArgs) Handles cmdCopyJSON.Click
-        My.Computer.Clipboard.SetText(txtJSON.Text)
-        lbltssMainStatus.Text = "Parsed JSON has been copied to the Clipboard"
+        If Len(txtJSON.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtJSON.Text)
+            lbltssMainStatus.Text = "Parsed JSON has been copied to the Clipboard"
+        End If
     End Sub
+
+
+    ' ------------------
+    ' SQL Formatter
+    ' ------------------
+
+    Private Sub cmdSQLFormatter_Click(sender As Object, e As EventArgs) Handles cmdSQLFormatter.Click
+        If Len(txtSQL.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to be formatted"
+        Else
+            txtSQL.Text = FormatSelect(txtSQL.Text, False)
+            lbltssMainStatus.Text = "Formatted SQL Statement"
+        End If
+    End Sub
+
+    Private Sub txtSQL_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSQL.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub cmdCopySQLF_Click(sender As Object, e As EventArgs) Handles cmdCopySQLF.Click
+        If Len(txtSQL.Text) = 0 Then
+            lbltssMainStatus.Text = "There is nothing to copy"
+        Else
+            My.Computer.Clipboard.SetText(txtSQL.Text)
+            lbltssMainStatus.Text = "Formatted SQL has been copied to the Clipboard"
+        End If
+    End Sub
+
 End Class

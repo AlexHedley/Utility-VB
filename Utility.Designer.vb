@@ -83,17 +83,23 @@ Partial Class frmUtility
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtGuidZero = New System.Windows.Forms.TextBox()
         Me.tpXMLPrettyPrint = New System.Windows.Forms.TabPage()
+        Me.lblXML = New System.Windows.Forms.Label()
+        Me.cmdCopyXML = New System.Windows.Forms.Button()
         Me.cmdXMLPrettyPrint = New System.Windows.Forms.Button()
         Me.txtXML = New System.Windows.Forms.TextBox()
         Me.tpJSONPrettyPrint = New System.Windows.Forms.TabPage()
+        Me.lblJSON = New System.Windows.Forms.Label()
+        Me.cmdCopyJSON = New System.Windows.Forms.Button()
         Me.cmdJSONPrettyPrint = New System.Windows.Forms.Button()
         Me.txtJSON = New System.Windows.Forms.TextBox()
+        Me.tpSQLFormatter = New System.Windows.Forms.TabPage()
+        Me.cmdCopySQLF = New System.Windows.Forms.Button()
+        Me.lblSQL = New System.Windows.Forms.Label()
+        Me.cmdSQLFormatter = New System.Windows.Forms.Button()
+        Me.txtSQL = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lbltssMainStatus = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.cmdCopyXML = New System.Windows.Forms.Button()
-        Me.cmdCopyJSON = New System.Windows.Forms.Button()
-        Me.lblXML = New System.Windows.Forms.Label()
-        Me.lblJSON = New System.Windows.Forms.Label()
+        Me.cmdCopyURL = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.tpHTMLDecodeEncode.SuspendLayout()
@@ -105,6 +111,7 @@ Partial Class frmUtility
         Me.tpGuid.SuspendLayout()
         Me.tpXMLPrettyPrint.SuspendLayout()
         Me.tpJSONPrettyPrint.SuspendLayout()
+        Me.tpSQLFormatter.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -260,7 +267,7 @@ Partial Class frmUtility
         '
         'cmdURLDecode
         '
-        Me.cmdURLDecode.Location = New System.Drawing.Point(726, 88)
+        Me.cmdURLDecode.Location = New System.Drawing.Point(660, 32)
         Me.cmdURLDecode.Name = "cmdURLDecode"
         Me.cmdURLDecode.Size = New System.Drawing.Size(60, 23)
         Me.cmdURLDecode.TabIndex = 22
@@ -318,6 +325,7 @@ Partial Class frmUtility
         Me.TabControl1.Controls.Add(Me.tpGuid)
         Me.TabControl1.Controls.Add(Me.tpXMLPrettyPrint)
         Me.TabControl1.Controls.Add(Me.tpJSONPrettyPrint)
+        Me.TabControl1.Controls.Add(Me.tpSQLFormatter)
         Me.TabControl1.Location = New System.Drawing.Point(12, 27)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -438,6 +446,7 @@ Partial Class frmUtility
         '
         'tpURLEncode
         '
+        Me.tpURLEncode.Controls.Add(Me.cmdCopyURL)
         Me.tpURLEncode.Controls.Add(Me.Label1)
         Me.tpURLEncode.Controls.Add(Me.txtURLDecode)
         Me.tpURLEncode.Controls.Add(Me.txtUrlEncode)
@@ -520,7 +529,7 @@ Partial Class frmUtility
         '
         'cmdClearSQL
         '
-        Me.cmdClearSQL.Location = New System.Drawing.Point(736, 162)
+        Me.cmdClearSQL.Location = New System.Drawing.Point(736, 225)
         Me.cmdClearSQL.Name = "cmdClearSQL"
         Me.cmdClearSQL.Size = New System.Drawing.Size(50, 23)
         Me.cmdClearSQL.TabIndex = 17
@@ -529,7 +538,7 @@ Partial Class frmUtility
         '
         'cmdCopySQL
         '
-        Me.cmdCopySQL.Location = New System.Drawing.Point(736, 363)
+        Me.cmdCopySQL.Location = New System.Drawing.Point(736, 545)
         Me.cmdCopySQL.Name = "cmdCopySQL"
         Me.cmdCopySQL.Size = New System.Drawing.Size(50, 23)
         Me.cmdCopySQL.TabIndex = 16
@@ -538,7 +547,7 @@ Partial Class frmUtility
         '
         'cmdParse
         '
-        Me.cmdParse.Location = New System.Drawing.Point(134, 180)
+        Me.cmdParse.Location = New System.Drawing.Point(134, 252)
         Me.cmdParse.Name = "cmdParse"
         Me.cmdParse.Size = New System.Drawing.Size(75, 23)
         Me.cmdParse.TabIndex = 15
@@ -549,18 +558,18 @@ Partial Class frmUtility
         '
         Me.txtSQLParsed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSQLParsed.Location = New System.Drawing.Point(6, 207)
+        Me.txtSQLParsed.Location = New System.Drawing.Point(6, 279)
         Me.txtSQLParsed.MaxLength = 0
         Me.txtSQLParsed.Multiline = True
         Me.txtSQLParsed.Name = "txtSQLParsed"
-        Me.txtSQLParsed.Size = New System.Drawing.Size(780, 150)
+        Me.txtSQLParsed.Size = New System.Drawing.Size(780, 260)
         Me.txtSQLParsed.TabIndex = 14
         '
         'cboWrapper
         '
         Me.cboWrapper.FormattingEnabled = True
         Me.cboWrapper.Items.AddRange(New Object() {"", "'"})
-        Me.cboWrapper.Location = New System.Drawing.Point(6, 180)
+        Me.cboWrapper.Location = New System.Drawing.Point(6, 252)
         Me.cboWrapper.Name = "cboWrapper"
         Me.cboWrapper.Size = New System.Drawing.Size(121, 21)
         Me.cboWrapper.TabIndex = 13
@@ -568,7 +577,7 @@ Partial Class frmUtility
         'lblWrapper
         '
         Me.lblWrapper.AutoSize = True
-        Me.lblWrapper.Location = New System.Drawing.Point(7, 163)
+        Me.lblWrapper.Location = New System.Drawing.Point(7, 235)
         Me.lblWrapper.Name = "lblWrapper"
         Me.lblWrapper.Size = New System.Drawing.Size(48, 13)
         Me.lblWrapper.TabIndex = 12
@@ -582,7 +591,7 @@ Partial Class frmUtility
         Me.txtSQLList.MaxLength = 0
         Me.txtSQLList.Multiline = True
         Me.txtSQLList.Name = "txtSQLList"
-        Me.txtSQLList.Size = New System.Drawing.Size(780, 150)
+        Me.txtSQLList.Size = New System.Drawing.Size(780, 213)
         Me.txtSQLList.TabIndex = 11
         '
         'tpGuid
@@ -689,6 +698,25 @@ Partial Class frmUtility
         Me.tpXMLPrettyPrint.Text = "XML Pretty Print"
         Me.tpXMLPrettyPrint.UseVisualStyleBackColor = True
         '
+        'lblXML
+        '
+        Me.lblXML.AutoSize = True
+        Me.lblXML.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblXML.Location = New System.Drawing.Point(6, 16)
+        Me.lblXML.Name = "lblXML"
+        Me.lblXML.Size = New System.Drawing.Size(29, 13)
+        Me.lblXML.TabIndex = 3
+        Me.lblXML.Text = "XML"
+        '
+        'cmdCopyXML
+        '
+        Me.cmdCopyXML.Location = New System.Drawing.Point(711, 545)
+        Me.cmdCopyXML.Name = "cmdCopyXML"
+        Me.cmdCopyXML.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopyXML.TabIndex = 2
+        Me.cmdCopyXML.Text = "&Copy"
+        Me.cmdCopyXML.UseVisualStyleBackColor = True
+        '
         'cmdXMLPrettyPrint
         '
         Me.cmdXMLPrettyPrint.Location = New System.Drawing.Point(711, 6)
@@ -720,6 +748,25 @@ Partial Class frmUtility
         Me.tpJSONPrettyPrint.Text = "JSON Pretty Print"
         Me.tpJSONPrettyPrint.UseVisualStyleBackColor = True
         '
+        'lblJSON
+        '
+        Me.lblJSON.AutoSize = True
+        Me.lblJSON.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblJSON.Location = New System.Drawing.Point(6, 16)
+        Me.lblJSON.Name = "lblJSON"
+        Me.lblJSON.Size = New System.Drawing.Size(35, 13)
+        Me.lblJSON.TabIndex = 5
+        Me.lblJSON.Text = "JSON"
+        '
+        'cmdCopyJSON
+        '
+        Me.cmdCopyJSON.Location = New System.Drawing.Point(711, 545)
+        Me.cmdCopyJSON.Name = "cmdCopyJSON"
+        Me.cmdCopyJSON.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopyJSON.TabIndex = 4
+        Me.cmdCopyJSON.Text = "&Copy"
+        Me.cmdCopyJSON.UseVisualStyleBackColor = True
+        '
         'cmdJSONPrettyPrint
         '
         Me.cmdJSONPrettyPrint.Location = New System.Drawing.Point(711, 6)
@@ -737,57 +784,78 @@ Partial Class frmUtility
         Me.txtJSON.Size = New System.Drawing.Size(779, 504)
         Me.txtJSON.TabIndex = 2
         '
+        'tpSQLFormatter
+        '
+        Me.tpSQLFormatter.Controls.Add(Me.cmdCopySQLF)
+        Me.tpSQLFormatter.Controls.Add(Me.lblSQL)
+        Me.tpSQLFormatter.Controls.Add(Me.cmdSQLFormatter)
+        Me.tpSQLFormatter.Controls.Add(Me.txtSQL)
+        Me.tpSQLFormatter.Location = New System.Drawing.Point(4, 22)
+        Me.tpSQLFormatter.Name = "tpSQLFormatter"
+        Me.tpSQLFormatter.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpSQLFormatter.Size = New System.Drawing.Size(792, 574)
+        Me.tpSQLFormatter.TabIndex = 8
+        Me.tpSQLFormatter.Text = "SQL Formatter"
+        Me.tpSQLFormatter.UseVisualStyleBackColor = True
+        '
+        'cmdCopySQLF
+        '
+        Me.cmdCopySQLF.Location = New System.Drawing.Point(711, 545)
+        Me.cmdCopySQLF.Name = "cmdCopySQLF"
+        Me.cmdCopySQLF.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopySQLF.TabIndex = 9
+        Me.cmdCopySQLF.Text = "&Copy"
+        Me.cmdCopySQLF.UseVisualStyleBackColor = True
+        '
+        'lblSQL
+        '
+        Me.lblSQL.AutoSize = True
+        Me.lblSQL.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSQL.Location = New System.Drawing.Point(6, 16)
+        Me.lblSQL.Name = "lblSQL"
+        Me.lblSQL.Size = New System.Drawing.Size(28, 13)
+        Me.lblSQL.TabIndex = 8
+        Me.lblSQL.Text = "SQL"
+        '
+        'cmdSQLFormatter
+        '
+        Me.cmdSQLFormatter.Location = New System.Drawing.Point(711, 6)
+        Me.cmdSQLFormatter.Name = "cmdSQLFormatter"
+        Me.cmdSQLFormatter.Size = New System.Drawing.Size(75, 23)
+        Me.cmdSQLFormatter.TabIndex = 7
+        Me.cmdSQLFormatter.Text = "Format"
+        Me.cmdSQLFormatter.UseVisualStyleBackColor = True
+        '
+        'txtSQL
+        '
+        Me.txtSQL.Location = New System.Drawing.Point(7, 35)
+        Me.txtSQL.Multiline = True
+        Me.txtSQL.Name = "txtSQL"
+        Me.txtSQL.Size = New System.Drawing.Size(779, 504)
+        Me.txtSQL.TabIndex = 6
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lbltssMainStatus})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 640)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(821, 22)
+        Me.StatusStrip1.SizingGrip = False
         Me.StatusStrip1.TabIndex = 24
-        Me.StatusStrip1.Text = "StatusStrip1"
         '
         'lbltssMainStatus
         '
         Me.lbltssMainStatus.Name = "lbltssMainStatus"
         Me.lbltssMainStatus.Size = New System.Drawing.Size(0, 17)
         '
-        'cmdCopyXML
+        'cmdCopyURL
         '
-        Me.cmdCopyXML.Location = New System.Drawing.Point(711, 545)
-        Me.cmdCopyXML.Name = "cmdCopyXML"
-        Me.cmdCopyXML.Size = New System.Drawing.Size(75, 23)
-        Me.cmdCopyXML.TabIndex = 2
-        Me.cmdCopyXML.Text = "&Copy"
-        Me.cmdCopyXML.UseVisualStyleBackColor = True
-        '
-        'cmdCopyJSON
-        '
-        Me.cmdCopyJSON.Location = New System.Drawing.Point(711, 545)
-        Me.cmdCopyJSON.Name = "cmdCopyJSON"
-        Me.cmdCopyJSON.Size = New System.Drawing.Size(75, 23)
-        Me.cmdCopyJSON.TabIndex = 4
-        Me.cmdCopyJSON.Text = "&Copy"
-        Me.cmdCopyJSON.UseVisualStyleBackColor = True
-        '
-        'lblXML
-        '
-        Me.lblXML.AutoSize = True
-        Me.lblXML.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblXML.Location = New System.Drawing.Point(6, 16)
-        Me.lblXML.Name = "lblXML"
-        Me.lblXML.Size = New System.Drawing.Size(29, 13)
-        Me.lblXML.TabIndex = 3
-        Me.lblXML.Text = "XML"
-        '
-        'lblJSON
-        '
-        Me.lblJSON.AutoSize = True
-        Me.lblJSON.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblJSON.Location = New System.Drawing.Point(6, 16)
-        Me.lblJSON.Name = "lblJSON"
-        Me.lblJSON.Size = New System.Drawing.Size(35, 13)
-        Me.lblJSON.TabIndex = 5
-        Me.lblJSON.Text = "JSON"
+        Me.cmdCopyURL.Location = New System.Drawing.Point(711, 88)
+        Me.cmdCopyURL.Name = "cmdCopyURL"
+        Me.cmdCopyURL.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopyURL.TabIndex = 24
+        Me.cmdCopyURL.Text = "&Copy"
+        Me.cmdCopyURL.UseVisualStyleBackColor = True
         '
         'frmUtility
         '
@@ -825,6 +893,8 @@ Partial Class frmUtility
         Me.tpXMLPrettyPrint.PerformLayout()
         Me.tpJSONPrettyPrint.ResumeLayout(False)
         Me.tpJSONPrettyPrint.PerformLayout()
+        Me.tpSQLFormatter.ResumeLayout(False)
+        Me.tpSQLFormatter.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -902,5 +972,11 @@ Partial Class frmUtility
     Friend WithEvents cmdCopyJSON As System.Windows.Forms.Button
     Friend WithEvents lblXML As System.Windows.Forms.Label
     Friend WithEvents lblJSON As System.Windows.Forms.Label
+    Friend WithEvents tpSQLFormatter As System.Windows.Forms.TabPage
+    Friend WithEvents lblSQL As System.Windows.Forms.Label
+    Friend WithEvents cmdSQLFormatter As System.Windows.Forms.Button
+    Friend WithEvents txtSQL As System.Windows.Forms.TextBox
+    Friend WithEvents cmdCopySQLF As System.Windows.Forms.Button
+    Friend WithEvents cmdCopyURL As System.Windows.Forms.Button
 
 End Class
