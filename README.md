@@ -2,6 +2,7 @@
 .NET App with helper functions for day to day jobs
 
 Here's a quick Gif showing the different tabs in the App
+
 ![Utility](Utility.gif "Utility")
 
 There are the following tabs 
@@ -10,5 +11,8 @@ There are the following tabs
 * HEX to RGB 
 * SQL Builder (IN Clause)
 * Guid 
+* JSON Pretty
+* XML Pretty
+* SQL Formatter
 
 It also contains a HELP (.chm) file to further explain the tabs and functions.
