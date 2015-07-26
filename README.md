@@ -1,6 +1,8 @@
 # Utility
 .NET App with helper functions for day to day jobs
 
+* I'm also creating a Mac Version: [Utility-Mac](https://github.com/AlexHedley/Utility-Mac)
+
 Here's a quick Gif showing the different tabs in the App
 
 ![Utility](Utility.gif "Utility")
